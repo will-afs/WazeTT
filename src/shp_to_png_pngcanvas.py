@@ -1,8 +1,9 @@
 import shapefile
 import pngcanvas
 
+print("Beginning of the program")
 # Open shapefile with Python Shapefile Library
-shapefile_name = 'HAIE.shp' # e.g. england_oa_2001
+shapefile_name = '/home/william/Programming/WazeTT/data/input/bd_topo/1_DONNEES_LIVRAISON/D_HYDROGRAPHIE/POINT_EAU.SHP' # e.g. england_oa_2001
 r = shapefile.Reader(shapefile_name)
 
 # Determine bounding box x and y distances and then calculate an xyratio
@@ -40,3 +41,5 @@ for shape in r.shapes():
 
 with open('output.png', 'wb') as f:
     f.write(c.dump())
+
+print("end of the program")
