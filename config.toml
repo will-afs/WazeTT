@@ -1,0 +1,41 @@
+# Keys
+title = "My TOML Config"
+
+# Tables
+[project]
+name = "Faceback"
+description = "Powerful AI which renders the back of somebody's head, based on their face."
+version = "1.0.0"
+updated = 1979-05-27T07:32:00Z
+author = "Todd Birchard"
+
+[database]
+host = "127.0.0.1"
+password = "p@ssw0rd"
+port = 5432
+name = "my_database"
+connection_max = 5000
+enabled = true
+
+# Nested `tables`
+[environments]
+  [environments.dev]
+    ip = "10.0.0.1"
+    dc = "eqdc10"
+  [environments.staging]
+    ip = "10.0.0.2"
+    dc = "eqdc10"
+  [environments.production]
+    ip = "10.0.0.3"
+    dc = "eqdc10"
+
+# Array of Tables
+[[testers]]
+id = 1
+username = "JohnCena"
+password = "YouCantSeeMe69"
+
+[[testers]]
+id = 3
+username = "TheRock"
+password = "CantCook123"
