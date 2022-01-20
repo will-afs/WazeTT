@@ -1,41 +1,52 @@
 # Keys
-title = "My TOML Config"
+title = "Sprint 3b config"
 
-# Tables
-[project]
-name = "Faceback"
-description = "Powerful AI which renders the back of somebody's head, based on their face."
-version = "1.0.0"
-updated = 1979-05-27T07:32:00Z
-author = "Todd Birchard"
+["input_data"]
+shapefile_dir_path = "/home/william/Programming/WazeTT/data/input/bd_topo/ZONE_VEGETATION/"
+shapefile_name = "ZONE_VEGETATION.shp"
 
-[database]
-host = "127.0.0.1"
-password = "p@ssw0rd"
-port = 5432
-name = "my_database"
-connection_max = 5000
-enabled = true
+ascii_file_dir_path = "../data/input/bd_alti/"
+ascii_file_name = "BDALTIV2_25M_FXX_0825_6550_MNT_LAMB93_IGN69.asc"
 
-# Nested `tables`
-[environments]
-  [environments.dev]
-    ip = "10.0.0.1"
-    dc = "eqdc10"
-  [environments.staging]
-    ip = "10.0.0.2"
-    dc = "eqdc10"
-  [environments.production]
-    ip = "10.0.0.3"
-    dc = "eqdc10"
+[nominal_speeds]
+  [nominal_speeds.walk]
+    reference = 6 # km/h
+    bush = 30 # %
+    sand = 60 # %
+    road = 100 # %
+    building = 0 # %
+    water = 0 # %
+    snow = 80 # %
+    [[nominal_speeds.walk.angle]]
+      range = [15, 90]
+      coef = 0
+    [[nominal_speeds.walk.angle]]
+      range = [10, 15]
+      coef = 20
+    [[nominal_speeds.walk.angle]]
+      range = [5, 10]
+      coef = 60
+    [[nominal_speeds.walk.angle]]
+      range = [0, 5]
+      coef = 100
+    [[nominal_speeds.walk.angle]]
+      range = [0, -5]
+      coef = 110
+    [[nominal_speeds.walk.angle]]
+      range = [-5, -15]
+      coef = 130
+    [[nominal_speeds.walk.angle]]
+      range = [-15, -90]
+      coef = 0
 
-# Array of Tables
-[[testers]]
+[["isochrones"]]
 id = 1
-username = "JohnCena"
-password = "YouCantSeeMe69"
+time = 5
 
-[[testers]]
+[["isochrones"]]
+id = 2
+time = 10
+
+[["isochrones"]]
 id = 3
-username = "TheRock"
-password = "CantCook123"
+time = 30
