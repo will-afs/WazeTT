@@ -3,7 +3,7 @@ lamb93_epsg_code = "2154" # The Lamb93 coordinates system -> https://epsg.io/215
 wgs84_epsg_code = "4326" # The WGS84 coordinates system -> https://epsg.io/4326
 
 def lamb93_to_wgs84(coordinates_lamb93):
-    transformer = Transformer.from_crs("epsg:"+wgs84_epsg_code, "epsg:"+lamb93_epsg_code)
+    transformer = Transformer.from_crs("epsg:"+lamb93_epsg_code, "epsg:"+wgs84_epsg_code, always_xy=True)
     coordinates_wgs84 = transformer.transform(
                                                 coordinates_lamb93[0],
                                                 coordinates_lamb93[1]
@@ -11,7 +11,7 @@ def lamb93_to_wgs84(coordinates_lamb93):
     return coordinates_wgs84
 
 def wgs84_to_lamb93(coordinates_wgs84):
-    transformer = Transformer.from_crs("epsg:"+lamb93_epsg_code, "epsg:"+wgs84_epsg_code)
+    transformer = Transformer.from_crs("epsg:"+wgs84_epsg_code, "epsg:"+lamb93_epsg_code, always_xy=True)
     coordinates_lamb93 = transformer.transform(
                                                 coordinates_wgs84[0],
                                                 coordinates_wgs84[1]

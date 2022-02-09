@@ -1,23 +1,59 @@
+from multiprocessing.sharedctypes import Value
 from shapely.geometry import Polygon
 from coordinates_utils import lamb93_to_wgs84
 
 
 class AltiData():
-    def calc_bb_coordinates(self, format='lamb93') -> dict:
+    def calc_bb_extreme_coordinates(self, format:str='lamb93') -> dict:
         #     # TODO : docstring
         #     # TODO : test
-        west_bound_xll_lamb93 = self.xllcorner_lamb93
-        east_bound_xll_lamb93 = self.xllcorner_lamb93 + self.cellsize*self.ncols
-        south_bound_yll_lamb93 = self.yllcorner_lamb93 - self.cellsize*self.nrows
-        north_bound_yll_lamb93 = self.yllcorner_lamb93
-
-        bb_coord = {}
-        bb_coord['nw'] = (west_bound_xll_lamb93, north_bound_yll_lamb93)
-        bb_coord['ne'] = (east_bound_xll_lamb93, north_bound_yll_lamb93)
-        bb_coord['se'] = (east_bound_xll_lamb93, south_bound_yll_lamb93)
-        bb_coord['sw'] = (west_bound_xll_lamb93, south_bound_yll_lamb93)
-        return bb_coord
+        if format == 'lamb93' or format =='wgs84':
+            bb_extreme_coord_lamb93 = {}
+            bb_extreme_coord_lamb93['xmin'] = self.xllcorner_lamb93
+            bb_extreme_coord_lamb93['xmax'] = self.xllcorner_lamb93 + self.cellsize*self.ncols
+            bb_extreme_coord_lamb93['ymin'] = self.yllcorner_lamb93 - self.cellsize*self.nrows
+            bb_extreme_coord_lamb93['ymax'] = self.yllcorner_lamb93
+            if format == 'lamb93':
+                return bb_extreme_coord_lamb93
+        if format == 'wgs84':
+            bb_extreme_coord_wgs84 = {}
+            bb_extreme_coord_wgs84['xmin'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['xmin'])
+            bb_extreme_coord_wgs84['xmax'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['xmax'])
+            bb_extreme_coord_wgs84['ymin'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['ymin'])
+            bb_extreme_coord_wgs84['ymax'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['ymax'])
+            return bb_extreme_coord_wgs84
+        else:
+            raise ValueError('Wrong value for \'format\'argument')
         
+    def calc_bb_polygon(self, format:str='lamb93') -> Polygon:
+        bb_angle_coordinates = self.calc_bb_angle_coordinates(format)
+        bb_polygon_lamb93 = Polygon([
+                            bb_angle_coordinates['nw'],
+                            bb_angle_coordinates['ne'],
+                            bb_angle_coordinates['se'],
+                            bb_angle_coordinates['sw']
+                        ])
+        return bb_polygon_lamb93
+
+    def calc_bb_angle_coordinates(self, format:str='lamb93') -> dict:
+        if format == 'lamb93' or format =='wgs84':
+            bb_angle_coord_lamb93 = {}
+            bb_angle_coord_lamb93['nw'] = (self.xllcorner_lamb93, self.yllcorner_lamb93)
+            bb_angle_coord_lamb93['ne'] = (self.xllcorner_lamb93 + self.cellsize*self.ncols, self.yllcorner_lamb93)
+            bb_angle_coord_lamb93['se'] = (self.xllcorner_lamb93 + self.cellsize*self.ncols, self.yllcorner_lamb93 - self.cellsize*self.nrows)
+            bb_angle_coord_lamb93['sw'] = (self.xllcorner_lamb93, self.yllcorner_lamb93 - self.cellsize*self.nrows)
+            if format == 'lamb93':
+                return bb_angle_coord_lamb93
+            if format == 'wgs84':  
+                bb_angle_coord_wgs84 = {}
+                bb_angle_coord_wgs84['nw'] = lamb93_to_wgs84(bb_angle_coord_lamb93['nw'])
+                bb_angle_coord_wgs84['ne'] = lamb93_to_wgs84(bb_angle_coord_lamb93['ne'])
+                bb_angle_coord_wgs84['se'] = lamb93_to_wgs84(bb_angle_coord_lamb93['se'])
+                bb_angle_coord_wgs84['sw'] = lamb93_to_wgs84(bb_angle_coord_lamb93['sw'])
+                return bb_angle_coord_wgs84
+        else:
+            raise ValueError('Wrong value for \'format\'argument')
+            
     def __init__(self, ascii_file_path):
         self._load_ascii_file_data(ascii_file_path)
         # self._calc_bb_coordinates() # ascii_table_bb_coord_lamb93 (mask for loading polygons from shapefiles)
