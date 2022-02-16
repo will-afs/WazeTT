@@ -28,4 +28,3 @@ def bb_bounds_to_coord(bb_bounds) -> dict: # bb_bounds = (min_x, min_y, max_x, m
     return bb_coord
 
 
-

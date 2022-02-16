@@ -1,3 +1,7 @@
+"""
+                CREATES A .SHX FILE IF DOES NOT EXIST WHEN IMPORTING THE .SHP
+"""
+
 from geopandas import read_file
 from shapefile import (Reader, Writer)
 from io import BytesIO as IO

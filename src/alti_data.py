@@ -4,24 +4,24 @@ from coordinates_utils import lamb93_to_wgs84
 
 
 class AltiData():
-    def calc_bb_extreme_coordinates(self, format:str='lamb93') -> dict:
+    def calc_bb_bound_coordinates(self, format:str='lamb93') -> dict:
         #     # TODO : docstring
         #     # TODO : test
         if format == 'lamb93' or format =='wgs84':
-            bb_extreme_coord_lamb93 = {}
-            bb_extreme_coord_lamb93['xmin'] = self.xllcorner_lamb93
-            bb_extreme_coord_lamb93['xmax'] = self.xllcorner_lamb93 + self.cellsize*self.ncols
-            bb_extreme_coord_lamb93['ymin'] = self.yllcorner_lamb93 - self.cellsize*self.nrows
-            bb_extreme_coord_lamb93['ymax'] = self.yllcorner_lamb93
+            bb_bounds_coord_lamb93 = {}
+            bb_bounds_coord_lamb93['xmin'] = self.xllcorner_lamb93
+            bb_bounds_coord_lamb93['xmax'] = self.xllcorner_lamb93 + self.cellsize*self.ncols
+            bb_bounds_coord_lamb93['ymin'] = self.yllcorner_lamb93 - self.cellsize*self.nrows
+            bb_bounds_coord_lamb93['ymax'] = self.yllcorner_lamb93
             if format == 'lamb93':
-                return bb_extreme_coord_lamb93
+                return bb_bounds_coord_lamb93
         if format == 'wgs84':
-            bb_extreme_coord_wgs84 = {}
-            bb_extreme_coord_wgs84['xmin'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['xmin'])
-            bb_extreme_coord_wgs84['xmax'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['xmax'])
-            bb_extreme_coord_wgs84['ymin'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['ymin'])
-            bb_extreme_coord_wgs84['ymax'] = lamb93_to_wgs84(bb_extreme_coord_lamb93['ymax'])
-            return bb_extreme_coord_wgs84
+            bb_bounds_coord_wgs84 = {}
+            bb_bounds_coord_wgs84['xmin'] = lamb93_to_wgs84(bb_bounds_coord_lamb93['xmin'])
+            bb_bounds_coord_wgs84['xmax'] = lamb93_to_wgs84(bb_bounds_coord_lamb93['xmax'])
+            bb_bounds_coord_wgs84['ymin'] = lamb93_to_wgs84(bb_bounds_coord_lamb93['ymin'])
+            bb_bounds_coord_wgs84['ymax'] = lamb93_to_wgs84(bb_bounds_coord_lamb93['ymax'])
+            return bb_bounds_coord_wgs84
         else:
             raise ValueError('Wrong value for \'format\'argument')
         
@@ -117,6 +117,26 @@ class AltiData():
         # else :
         #     bb_coord_wgs84 = 
         #     return bb_coord_wgs84 = lamb93_to_wgs84
+    
+    def calc_cell_center_coordinates(self):
+        cells_center_coordinates = [[None for col in range(self.ncols)] for row in range(self.nrows)]
+
+        # start coordinates
+        nw_coord_ref_lamb93 = (
+                                self.xllcorner_lamb93 + self.cellsize/2, # x_coord
+                                self.yllcorner_lamb93 - self.cellsize/2  # y_coord
+                            )
+
+
+        for row in range(len(cells_center_coordinates)):
+            for col in range(len(cells_center_coordinates[0])):
+                cell_center_coord = (
+                    nw_coord_ref_lamb93[0]+(col+1)*self.cellsize, # x_coord
+                    nw_coord_ref_lamb93[1]-(row+1)*self.cellsize  # y_coord
+                )
+                cells_center_coordinates[row][col] = cell_center_coord
+        
+        return cells_center_coordinates
 
 
             

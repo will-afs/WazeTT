@@ -81,5 +81,5 @@ def wn_PnPoly(P, V):
 
 if __name__ == "__main__":
     P=[1,0]
-    V = [[0,0],[7,0],[7,3]]
+    V = [[0,0],[7,0],[7,3]] # (original)
     print(wn_PnPoly(P, V))
