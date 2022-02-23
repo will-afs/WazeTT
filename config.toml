@@ -10,33 +10,34 @@ ascii_file_name = "BDALTIV2_25M_FXX_0825_6550_MNT_LAMB93_IGN69.asc"
 
 [nominal_speeds]
   [nominal_speeds.walk]
-    reference = 6 # km/h
-    bush = 30 # %
-    sand = 60 # %
-    road = 100 # %
-    building = 0 # %
-    water = 0 # %
-    snow = 80 # %
+    reference = 100 # m/min
+    bush = 0.30 # 30%
+    sand = 0.60 # 60%
+    grass = 1 # 100%
+    road = 1 # 100%
+    building = 0 # 0%
+    water = 0 # 0%
+    snow = 0.80 # 80%
     [[nominal_speeds.walk.angle]]
       range = [15, 90]
       coef = 0
     [[nominal_speeds.walk.angle]]
       range = [10, 15]
-      coef = 20
+      coef = 0.20
     [[nominal_speeds.walk.angle]]
       range = [5, 10]
-      coef = 60
+      coef = 0.60
     [[nominal_speeds.walk.angle]]
       range = [0, 5]
-      coef = 100
+      coef = 1
     [[nominal_speeds.walk.angle]]
-      range = [0, -5]
-      coef = 110
+      range = [-5, 0]
+      coef = 1.10
     [[nominal_speeds.walk.angle]]
-      range = [-5, -15]
-      coef = 130
+      range = [-15, -5]
+      coef = 1.30
     [[nominal_speeds.walk.angle]]
-      range = [-15, -90]
+      range = [-90, -15]
       coef = 0
 
 [["isochrones"]]
