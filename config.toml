@@ -45,7 +45,7 @@ default_field = "grass"
 
 [[isochrones]]
 id = 1
-time = 15
+time = 80
 
 [[isochrones]]
 id = 2
