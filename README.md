@@ -1,11 +1,33 @@
-# 🗺️ WazeTT
-Calculating off-trail isochrones
+🗺️ WazeTT
+=========
+*Calculating off-trail isochrones*
+
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrone_autonomy_130_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png">
 
 Exemples of use cases :
 - ⛑️ Helping rescuers estimating the possible positions of an injured person in the nature
 - ⛰️ Helping hikers finding their way in the mountain
 - 💣 Helping the army finding its way in their intervention missions given dynamic events (e.g. collapse of a bridge, presence of terrorists, etc.)
 - 🔥 Helping firefighters estimating the propagation of the fire in a forest
+- 👮 Helping police locating fugitives
 
+# ⛰️ Input data
+Cartographic datasets are obtained from [GeoServices Open API](https://geoservices.ign.fr/catalogue):
+- Altitude datasets can be found as .asc files (raster):
+  - [BD alti (25m resolution)](https://geoservices.ign.fr/bdalti)
+  - [RGE alti (1m or 5m resolution)](https://geoservices.ign.fr/rgealti)
+- Field datasets can be found as .shp files (vectorial):
+  - [BD Topo (metric precision)](https://geoservices.ign.fr/bdtopo)
+  - [BD Carto (decametric precision)](https://geoservices.ign.fr/bdcarto)
 
+# ⚙️ Configuration
 
+# ⚗️ Main steps of the program
+1. Importing altitudes as a 2D table
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/alti_plot_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
+2. Importing fields polygons included in altitude data bounding box
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/field_polygons_and_study_perimeter_bb.png" width=700>
+3. Making fields 2D table from fields polygons
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/field_polygons_projection_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
+4. Calculating off-trail isochrone from altitudes and fields datasets
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrone_autonomy_130_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
