@@ -9,7 +9,7 @@ Exemples of use cases :
 - ⛰️ Helping hikers finding their way in the mountain
 - 💣 Helping the army finding its way in their intervention missions given dynamic events (e.g. collapse of a bridge, presence of terrorists, etc.)
 - 🔥 Helping firefighters estimating the propagation of the fire in a forest
-- 🌊 Help engineers sizing hydraulic structures by estimating flood propagation
+- 🌊 Helping engineers sizing hydraulic structures by estimating flood propagation
 - 👮 Helping police locating fugitives
 - and many more !
 
