@@ -6,12 +6,12 @@
 
 Exemples of use cases :
 - ⛑️ Helping rescuers estimating the possible positions of an injured person in the nature
-- ⛰️ Helping hikers finding their way in the mountain
-- 💣 Helping the army finding its way in their intervention missions given dynamic events (e.g. collapse of a bridge, presence of terrorists, etc.)
+- 👮 Helping police locating fugitives
 - 🔥 Helping firefighters estimating the propagation of the fire in a forest
 - 🌊 Helping engineers sizing hydraulic structures by estimating flood propagation
-- 👮 Helping police locating fugitives
-- and many more !
+- ⛰️ Helping hikers finding their way in the mountain
+- 💣 Helping the army finding its way in their intervention missions given dynamic events (e.g. collapse of a bridge, presence of terrorists, etc.)
+- ... and many more !
 
 *Note : this solution is made to be executable locally, i.e. without any internet connection*
 
