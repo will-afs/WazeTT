@@ -1,6 +1,6 @@
 🗺️ WazeTT
 =========
-*Calculating off-trail isochrones*
+*Research project for calculating off-trail isochrones*
 
 <img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrone_autonomy_130_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png">
 
@@ -11,8 +11,10 @@ Exemples of use cases :
 - 🔥 Helping firefighters estimating the propagation of the fire in a forest
 - 👮 Helping police locating fugitives
 
+*Note : this solution is made to be executable locally, i.e. without any internet connection*
+
 # ⛰️ Input data
-Cartographic datasets are obtained from [GeoServices Open API](https://geoservices.ign.fr/catalogue):
+The solution is compatible with cartographic datasets obtained from [GeoServices Open API](https://geoservices.ign.fr/catalogue):
 - Altitude datasets can be found as .asc files (raster):
   - [BD alti (25m resolution)](https://geoservices.ign.fr/bdalti)
   - [RGE alti (1m or 5m resolution)](https://geoservices.ign.fr/rgealti)
@@ -20,7 +22,18 @@ Cartographic datasets are obtained from [GeoServices Open API](https://geoservic
   - [BD Topo (metric precision)](https://geoservices.ign.fr/bdtopo)
   - [BD Carto (decametric precision)](https://geoservices.ign.fr/bdcarto)
 
+# 🔽 Installation
+Create a Python virtual environment and install the project dependencies :
+
+    pip install -r requirements.txt
+  
 # ⚙️ Configuration
+The project can be configured through the project_config.toml file
+
+# ▶️ Usage
+The source code is accessible through the [/src folder](https://github.com/will-afs/WazeTT/tree/main/src)
+
+The different notebooks give a general overview of the solution
 
 # ⚗️ Main steps of the program
 1. Importing altitudes as a 2D table
