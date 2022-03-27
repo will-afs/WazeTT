@@ -24,8 +24,24 @@ The solution is compatible with cartographic datasets obtained from [GeoServices
   - [BD Topo (metric precision)](https://geoservices.ign.fr/bdtopo)
   - [BD Carto (decametric precision)](https://geoservices.ign.fr/bdcarto)
 
-# 🔽 Installation
-Create a Python virtual environment and install the project dependencies :
+# 🔽 Installation (Linux)
+Open a terminal, download the repository :
+
+    git clone https://github.com/will-afs/WazeTT
+    
+Go into the directory :
+
+    cd WazeTT/
+
+Create a Python virtual environment :
+
+    python3 -m venv .venv
+    
+Activate the virtual environment :
+
+    source .venv/bin/activate
+    
+Install the project dependencies :
 
     pip install -r requirements.txt
   
