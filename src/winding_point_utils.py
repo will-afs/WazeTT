@@ -60,8 +60,6 @@ def cn_PnPoly(P, V):
 
 
 def wn_PnPoly(P, V):
-    # TODO : docstring
-    # TODO : test
     wn = 0   # the winding number counter
 
     # repeat the first vertex at end

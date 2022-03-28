@@ -1,5 +1,6 @@
 """
         Get Shapefile bounding box coordinates (WGS84 coordinates system (lat, long))
+        Will be useful when aggregating several tiles
 """
 
 shapefile_dir_path = '/home/william/Programming/WazeTT/data/input/bd_topo/ZONE_VEGETATION/' # '/home/bertrand/Documents/Projet Indus/WazeTT/data/input/bd_topo/'
