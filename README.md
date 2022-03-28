@@ -2,7 +2,7 @@
 =========
 *Research project for calculating off-trail isochrones*
 
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/animation.gif">
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/gif_isochrone_center.gif" width = 300>
 
 Exemples of use cases :
 - ⛑️ Helping rescuers estimating the possible positions of an injured person in the nature
@@ -61,4 +61,4 @@ The different notebooks give a general overview of the solution
 3. Making fields 2D table from fields polygons
 <img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/field_polygons_projection_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
 4. Calculating off-trail isochrone from altitudes and fields datasets
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/animation.gif">
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/gif_isochrone_center.gif" width = 300>
