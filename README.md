@@ -2,7 +2,7 @@
 =========
 *Research project for calculating off-trail isochrones*
 
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/gif_isochrone_center.gif" width = 300>
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones/isochrones_gif/gif_isochrone_center_no_bg.gif" width = 300> <img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones/isochrones_gif/gif_isochrone_upper_right.gif" width = 280>
 
 Exemples of use cases :
 - ⛑️ Helping rescuers estimating the possible positions of an injured person in the nature
@@ -55,10 +55,10 @@ The different notebooks give a general overview of the solution
 
 # ⚗️ Main steps of the program
 1. Importing altitudes as a 2D table
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/alti_plot_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
-2. Importing fields polygons included in altitude data bounding box
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/field_polygons_and_study_perimeter_bb.png" width=700>
-3. Making fields 2D table from fields polygons
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/field_polygons_projection_ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/input_data/alti_plot_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
+2. Importing fields polygons (vegetation) included in altitude data bounding box
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/input_data/field_polygons_and_study_perimeter_bb.png" width=700>
+3. Making fields 2D table from fields polygons (green = vegetation, yellow = grass)
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/polygons_projection/ZONE_VEGETATION_BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.png" width=300>
 4. Calculating off-trail isochrone from altitudes and fields datasets
-<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones_for_gif/gif_isochrone_center.gif" width = 300>
+<img src="https://github.com/will-afs/WazeTT/blob/main/doc/img/isochrones/isochrones_gif/gif_isochrone_upper_right.gif" width = 280>
