@@ -2,11 +2,15 @@
 title = "Sprint 3b config"
 
 [input_data]
-shapefile_dir_path = "/home/william/Programming/WazeTT/data/input/bd_carto/ZONE_VEGETATION/"
+shapefile_dir_path = "../data/input/bd_carto/ZONE_VEGETATION/"
 shapefile_name = "ZONE_VEGETATION.shp"
 
 ascii_file_dir_path = "../data/input/bd_alti/"
-ascii_file_name = "BDALTIV2_25M_FXX_0825_6525_MNT_LAMB93_IGN69.asc"
+ascii_file_name = "BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.asc"
+
+[doc_data]
+input_data_dir_path = "../doc/img/input_data/"
+polygons_projection_dir_path = "../doc/img/polygons_projection/"
 
 [fields_table]
 default_field = "grass"
@@ -45,7 +49,7 @@ default_field = "grass"
 
 [[isochrones]]
 id = 1
-time = 80
+time = 50
 
 [[isochrones]]
 id = 2
