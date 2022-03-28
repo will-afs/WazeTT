@@ -11,6 +11,7 @@ ascii_file_name = "BDALTIV2_25M_FXX_0875_6550_MNT_LAMB93_IGN69.asc"
 [doc_data]
 input_data_dir_path = "../doc/img/input_data/"
 polygons_projection_dir_path = "../doc/img/polygons_projection/"
+isochrones_dir_path = "../doc/img/isochrones/isochrones_for_making_gif/"
 
 [fields_table]
 default_field = "grass"
